@@ -18,16 +18,21 @@ def pregunta_01():
     -------------------------------------------------------------------------------------
     """
     # Lea el archivo `insurance.csv` y asignelo al DataFrame `df`
-    df = ____
+    df = pd.read_csv(
+        "insurance.csv",
+        sep=",",  # separador de campos
+        thousands=None,  # separador de miles para números
+        decimal=".",  # separador de los decimales para números
+      )
 
     # Asigne la columna `charges` a la variable `y`.
-    ____ = ____
+    y = df["charges"]
 
     # Asigne una copia del dataframe `df` a la variable `X`.
-    ____ = ____.____(____)
+    X = df.copy()
 
     # Remueva la columna `charges` del DataFrame `X`.
-    ____.____(____)
+    X=X.drop(['charges'], axis=1)
 
     # Retorne `X` y `y`
     return X, y
